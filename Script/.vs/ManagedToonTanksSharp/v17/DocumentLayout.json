@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\UnrealProject\\ToonTanksSharp\\Script\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}|ManagedToonTanksSharp\\ManagedToonTanksSharp.csproj|e:\\unrealproject\\toontankssharp\\script\\managedtoontankssharp\\toontanks\\basepawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}|ManagedToonTanksSharp\\ManagedToonTanksSharp.csproj|solutionrelative:managedtoontankssharp\\toontanks\\basepawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}|ManagedToonTanksSharp\\ManagedToonTanksSharp.csproj|e:\\unrealproject\\toontankssharp\\script\\managedtoontankssharp\\toontanks\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}|ManagedToonTanksSharp\\ManagedToonTanksSharp.csproj|solutionrelative:managedtoontankssharp\\toontanks\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}|ManagedToonTanksSharp\\ManagedToonTanksSharp.csproj|e:\\unrealproject\\toontankssharp\\script\\managedtoontankssharp\\toontanks\\tank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}|ManagedToonTanksSharp\\ManagedToonTanksSharp.csproj|solutionrelative:managedtoontankssharp\\toontanks\\tank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}|ManagedToonTanksSharp\\ManagedToonTanksSharp.csproj|e:\\unrealproject\\toontankssharp\\script\\managedtoontankssharp\\toontanks\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}|ManagedToonTanksSharp\\ManagedToonTanksSharp.csproj|solutionrelative:managedtoontankssharp\\toontanks\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}|ManagedToonTanksSharp\\ManagedToonTanksSharp.csproj|e:\\unrealproject\\toontankssharp\\script\\managedtoontankssharp\\manager\\resourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}|ManagedToonTanksSharp\\ManagedToonTanksSharp.csproj|solutionrelative:managedtoontankssharp\\manager\\resourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Projectile.cs",
+              "DocumentMoniker": "E:\\UnrealProject\\ToonTanksSharp\\Script\\ManagedToonTanksSharp\\ToonTanks\\Projectile.cs",
+              "RelativeDocumentMoniker": "ManagedToonTanksSharp\\ToonTanks\\Projectile.cs",
+              "ToolTip": "E:\\UnrealProject\\ToonTanksSharp\\Script\\ManagedToonTanksSharp\\ToonTanks\\Projectile.cs",
+              "RelativeToolTip": "ManagedToonTanksSharp\\ToonTanks\\Projectile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T01:16:02.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Tower.cs",
+              "DocumentMoniker": "E:\\UnrealProject\\ToonTanksSharp\\Script\\ManagedToonTanksSharp\\ToonTanks\\Tower.cs",
+              "RelativeDocumentMoniker": "ManagedToonTanksSharp\\ToonTanks\\Tower.cs",
+              "ToolTip": "E:\\UnrealProject\\ToonTanksSharp\\Script\\ManagedToonTanksSharp\\ToonTanks\\Tower.cs",
+              "RelativeToolTip": "ManagedToonTanksSharp\\ToonTanks\\Tower.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-16T13:15:04.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ResourceManager.cs",
+              "DocumentMoniker": "E:\\UnrealProject\\ToonTanksSharp\\Script\\ManagedToonTanksSharp\\Manager\\ResourceManager.cs",
+              "RelativeDocumentMoniker": "ManagedToonTanksSharp\\Manager\\ResourceManager.cs",
+              "ToolTip": "E:\\UnrealProject\\ToonTanksSharp\\Script\\ManagedToonTanksSharp\\Manager\\ResourceManager.cs",
+              "RelativeToolTip": "ManagedToonTanksSharp\\Manager\\ResourceManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T01:43:59.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Tank.cs",
+              "DocumentMoniker": "E:\\UnrealProject\\ToonTanksSharp\\Script\\ManagedToonTanksSharp\\ToonTanks\\Tank.cs",
+              "RelativeDocumentMoniker": "ManagedToonTanksSharp\\ToonTanks\\Tank.cs",
+              "ToolTip": "E:\\UnrealProject\\ToonTanksSharp\\Script\\ManagedToonTanksSharp\\ToonTanks\\Tank.cs",
+              "RelativeToolTip": "ManagedToonTanksSharp\\ToonTanks\\Tank.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAMwGcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T01:23:38.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BasePawn.cs",
+              "DocumentMoniker": "E:\\UnrealProject\\ToonTanksSharp\\Script\\ManagedToonTanksSharp\\ToonTanks\\BasePawn.cs",
+              "RelativeDocumentMoniker": "ManagedToonTanksSharp\\ToonTanks\\BasePawn.cs",
+              "ToolTip": "E:\\UnrealProject\\ToonTanksSharp\\Script\\ManagedToonTanksSharp\\ToonTanks\\BasePawn.cs",
+              "RelativeToolTip": "ManagedToonTanksSharp\\ToonTanks\\BasePawn.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAWwEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T14:14:04.342Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

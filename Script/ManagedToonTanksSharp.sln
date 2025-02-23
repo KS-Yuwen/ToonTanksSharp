@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagedToonTanksSharp", "ManagedToonTanksSharp\ManagedToonTanksSharp.csproj", "{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectGlue", "ProjectGlue\ProjectGlue.csproj", "{BAB34CFB-8A89-41CE-A4FB-FFD2BABF0544}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB937CBC-0363-4BE8-86F9-0A3F29F85AC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAB34CFB-8A89-41CE-A4FB-FFD2BABF0544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB34CFB-8A89-41CE-A4FB-FFD2BABF0544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB34CFB-8A89-41CE-A4FB-FFD2BABF0544}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB34CFB-8A89-41CE-A4FB-FFD2BABF0544}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
