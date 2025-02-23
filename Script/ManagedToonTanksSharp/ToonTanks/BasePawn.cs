@@ -66,9 +66,9 @@ namespace ManagedToonTanksSharp.ToonTanks
         [UFunction]
         public void Fire(FInputActionValue value, float arg2, float arg3, UInputAction action)
         {
-            LogUnrealSharp.Log("Call Fire");
             // 発射物を生成
-            var Projectile =　SpawnActor<AProjectile>(ProjectileClass, ProjectileSpwanPoint.WorldTransform, ESpawnActorCollisionHandlingMethod.AlwaysSpawn);
+            var Projectile = SpawnActor<AProjectile>(ProjectileClass, ProjectileSpwanPoint.WorldTransform, ESpawnActorCollisionHandlingMethod.AlwaysSpawn);
+            Projectile.Owner = this;
         }
     }
 }
