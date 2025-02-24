@@ -319,3 +319,7 @@ RELEASE_MSG
 # Linux project files
 /Makefile
 /.ignore
+
+# UnrealSharp
+/Plugins/UnrealSharp
+!/Plugins/UnrealSharp/.gitkeep
