@@ -2,7 +2,6 @@
 using UnrealSharp.Attributes;
 using UnrealSharp.CoreUObject;
 using UnrealSharp.Engine;
-using UnrealSharp.Logging;
 
 namespace ManagedToonTanksSharp.ToonTanks
 {
@@ -29,6 +28,16 @@ namespace ManagedToonTanksSharp.ToonTanks
         /// </summary>  
         [UProperty(PropertyFlags.EditAnywhere)]
         private float Damage { get; set; } = 50.0f;
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public AProjectile()
+        {
+            ProjectileMovement.MaxSpeed = 1300.0f;
+            ProjectileMovement.InitialSpeed = 1300.0f;
+        }
+
 
         /// <summary>
         /// BeginPlay

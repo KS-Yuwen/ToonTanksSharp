@@ -89,5 +89,14 @@ namespace ManagedToonTanksSharp.ToonTanks
 
             return false;
         }
+
+        /// <summary>
+        /// HandleDestruction
+        /// </summary>
+        public void HandleDestruction()
+        {
+            base.HandleDestruction();
+            DestroyActor();
+        }
     }
 }

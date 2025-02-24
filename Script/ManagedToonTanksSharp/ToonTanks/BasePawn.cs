@@ -70,5 +70,13 @@ namespace ManagedToonTanksSharp.ToonTanks
             var Projectile = SpawnActor<AProjectile>(ProjectileClass, ProjectileSpwanPoint.WorldTransform, ESpawnActorCollisionHandlingMethod.AlwaysSpawn);
             Projectile.Owner = this;
         }
+
+        /// <summary>
+        /// HandleDestruction
+        /// </summary>
+        public void HandleDestruction()
+        {
+            // TODO: Visual/sound effect
+        }
     }
 }
