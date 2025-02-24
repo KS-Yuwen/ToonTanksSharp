@@ -1,4 +1,5 @@
-﻿using UnrealSharp.Attributes;
+﻿using ManagedToonTanksSharp.GameMode;
+using UnrealSharp.Attributes;
 using UnrealSharp.Attributes.MetaTags;
 using UnrealSharp.Engine;
 using UnrealSharp.Logging;
@@ -24,6 +25,8 @@ namespace ManagedToonTanksSharp.ToonTanks
         /// </summary>
         private float Health { get; set; } = 0.0f;
 
+        private AToonTanksGameMode ToonTanksGameMode { get; set; }
+
         /// <summary>
         /// コンストラクタ
         /// </summary>
@@ -40,8 +43,8 @@ namespace ManagedToonTanksSharp.ToonTanks
             base.BeginPlay();
             Health = MaxHealth;
 
-            LogUnrealSharp.Log("UHealthComponent Owner : " + Owner.ObjectName);
             Owner.OnTakeAnyDamage.Add(DamageTaken);
+            ToonTanksGameMode = (AToonTanksGameMode)UGameplayStatics.GameMode;
         }
 
         /// <summary>
@@ -70,7 +73,10 @@ namespace ManagedToonTanksSharp.ToonTanks
             }
 
             Health -= Damage;
-            LogUnrealSharp.LogWarning("Health : " + Health);
+            if (Health <= 0.0f && ToonTanksGameMode)
+            {
+                ToonTanksGameMode.ActorDied(DamagedActor);
+            }
         }
     }
 }

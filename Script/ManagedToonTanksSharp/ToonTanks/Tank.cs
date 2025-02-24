@@ -42,6 +42,11 @@ namespace ManagedToonTanksSharp.ToonTanks
         private AResourceManager resourceManager;
 
         /// <summary>
+        /// PlayerController
+        /// </summary>
+        private APlayerController TankPlayerController { get; set; }
+
+        /// <summary>
         /// BeginPlay
         /// </summary>
         protected override void BeginPlay()
@@ -55,13 +60,13 @@ namespace ManagedToonTanksSharp.ToonTanks
                 throw new Exception("Player input is not configured for EnhancedInput");
             }
 
-            if (Controller is not APlayerController playerController)
+            if (Controller is not APlayerController TankPlayerController)
             {
                 throw new Exception("Controller is not player");
             }
 
             // InputSubsystemを取得
-            var enhancedInputSubsystem = GetLocalPlayerSubsystem<UEnhancedInputLocalPlayerSubsystem>(playerController);
+            var enhancedInputSubsystem = GetLocalPlayerSubsystem<UEnhancedInputLocalPlayerSubsystem>(TankPlayerController);
             enhancedInputSubsystem.AddMappingContext(resourceManager.MappingContext, 0);
 
             // 移動処理をバインド
@@ -80,14 +85,12 @@ namespace ManagedToonTanksSharp.ToonTanks
             base.Tick(deltaSeconds);
 
 
-            if (Controller is not APlayerController playerController)
+            if (TankPlayerController)
             {
-                return;
+                TankPlayerController.GetHitResultUnderCursorByChannel(ETraceTypeQuery.TraceTypeQuery1, false, out FHitResult hitResult);
+
+                RotateTurret(hitResult.ImpactPoint);
             }
-
-            playerController.GetHitResultUnderCursorByChannel(ETraceTypeQuery.TraceTypeQuery1, false, out FHitResult hitResult);
-
-            RotateTurret(hitResult.ImpactPoint);
 
         }
 
@@ -125,6 +128,25 @@ namespace ManagedToonTanksSharp.ToonTanks
             FRotator DeltaRotation = FVector.Zero;
             DeltaRotation.Yaw = AxisValue.X * TurnRate * UGameplayStatics.WorldDeltaSeconds;
             AddActorLocalRotation(DeltaRotation, false, out _, false);
+        }
+
+        /// <summary>
+        /// HandleDestruction
+        /// </summary>
+        public void HandleDestruction()
+        {
+            base.HandleDestruction();
+            ActorHiddenInGame = true;
+            ActorTickEnabled = false;
+        }
+
+        /// <summary>
+        /// GetPlayerController
+        /// </summary>
+        /// <returns></returns>
+        public APlayerController GetPlayerController()
+        {
+            return TankPlayerController;
         }
     }
 }
