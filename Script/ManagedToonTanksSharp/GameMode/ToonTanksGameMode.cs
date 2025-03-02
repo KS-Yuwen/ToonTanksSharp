@@ -1,6 +1,7 @@
 ﻿using ManagedToonTanksSharp.ToonTanks;
 using UnrealSharp.Attributes;
 using UnrealSharp.Engine;
+using UnrealSharp.Logging;
 
 namespace ManagedToonTanksSharp.GameMode
 {
@@ -21,13 +22,42 @@ namespace ManagedToonTanksSharp.GameMode
         private AToonTanksPlayerController ToonTanksPlayerController { get; set; }
 
         /// <summary>
+        /// StartDelay
+        /// </summary>
+        private float StartDelay = 3.0f;
+
+        /// <summary>
         /// BeginPlay
         /// </summary>
         protected override void BeginPlay()
         {
             base.BeginPlay();
+            HandleGameStart();
+        }
+
+        /// <summary>
+        /// HandleGameStart
+        /// </summary>
+        [UFunction]
+        private void HandleGameStart()
+        {
             Tank = (ATank)UGameplayStatics.GetPlayerPawn(0);
             ToonTanksPlayerController = (AToonTanksPlayerController)UGameplayStatics.GetPlayerController(0);
+            if (ToonTanksPlayerController != null)
+            {
+                ToonTanksPlayerController.SetPlayerEnabledState(false);
+                FTimerHandle TimerHandle = SystemLibrary.SetTimer(this, nameof(EnablePlayerInput), StartDelay, false);
+            }
+        }
+
+        /// <summary>
+        /// EnablePlayerInput
+        /// </summary>
+        [UFunction]
+        private void EnablePlayerInput()
+        {
+            LogUnrealSharp.Log("EnablePlayerInput");
+            ToonTanksPlayerController.SetPlayerEnabledState(true);
         }
 
         /// <summary>
