@@ -7,12 +7,13 @@ namespace ManagedToonTanksSharp.ToonTanks
     /// PlayerController
     /// </summary>
     [UClass]
-    class AToonTanksPlayerController : APlayerController
+    public class AToonTanksPlayerController : APlayerController
     {
         /// <summary>
         /// PlayerEnabledState
         /// </summary>
         /// <param name="bPlayerEnabled"></param>
+        [UFunction]
         public void SetPlayerEnabledState(bool bPlayerEnabled)
         {
             if (bPlayerEnabled)

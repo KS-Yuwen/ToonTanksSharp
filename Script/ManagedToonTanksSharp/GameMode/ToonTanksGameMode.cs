@@ -82,6 +82,8 @@ namespace ManagedToonTanksSharp.GameMode
                 ATower DestroyTower = (ATower)DeadActor;
                 DestroyTower.HandleDestruction();
             }
+
+            UTimerDynamicDelegate TimerDel = new UTimerDynamicDelegate(this, nameof(BeginPlay));
         }
     }
 }
