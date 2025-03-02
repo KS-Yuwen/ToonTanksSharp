@@ -10,10 +10,15 @@ namespace ManagedToonTanksSharp.GameMode
     [UClass]
     class AToonTanksGameMode : AGameMode
     {
-
+        /// <summary>
+        /// Tank
+        /// </summary>
         private ATank Tank { get; set; }
 
-        private ATower Tower { get; set; }
+        /// <summary>
+        /// PlayerController
+        /// </summary>
+        private AToonTanksPlayerController ToonTanksPlayerController { get; set; }
 
         /// <summary>
         /// BeginPlay
@@ -22,6 +27,7 @@ namespace ManagedToonTanksSharp.GameMode
         {
             base.BeginPlay();
             Tank = (ATank)UGameplayStatics.GetPlayerPawn(0);
+            ToonTanksPlayerController = (AToonTanksPlayerController)UGameplayStatics.GetPlayerController(0);
         }
 
         /// <summary>
@@ -33,11 +39,10 @@ namespace ManagedToonTanksSharp.GameMode
             if (DeadActor == Tank)
             {
                 Tank.HandleDestruction();
-                APlayerController playerController = Tank.GetPlayerController();
-                if (playerController != null)
+                ToonTanksPlayerController = (AToonTanksPlayerController)Tank.GetPlayerController();
+                if (ToonTanksPlayerController != null)
                 {
-                    Tank.DisableInput(playerController);
-                    playerController.ShowMouseCursor = false;
+                    ToonTanksPlayerController.SetPlayerEnabledState(false);
                 }
                 return;
             }
