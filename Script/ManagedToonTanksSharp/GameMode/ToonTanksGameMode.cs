@@ -69,7 +69,6 @@ namespace ManagedToonTanksSharp.GameMode
             if (DeadActor == Tank)
             {
                 Tank.HandleDestruction();
-                ToonTanksPlayerController = (AToonTanksPlayerController)Tank.GetPlayerController();
                 if (ToonTanksPlayerController != null)
                 {
                     ToonTanksPlayerController.SetPlayerEnabledState(false);
