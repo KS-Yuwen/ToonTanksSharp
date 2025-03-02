@@ -1,6 +1,7 @@
 ﻿using ManagedToonTanksSharp.ToonTanks;
 using UnrealSharp.Attributes;
 using UnrealSharp.Engine;
+using UnrealSharp.Logging;
 
 namespace ManagedToonTanksSharp.GameMode
 {
@@ -10,10 +11,20 @@ namespace ManagedToonTanksSharp.GameMode
     [UClass]
     class AToonTanksGameMode : AGameMode
     {
-
+        /// <summary>
+        /// Tank
+        /// </summary>
         private ATank Tank { get; set; }
 
-        private ATower Tower { get; set; }
+        /// <summary>
+        /// PlayerController
+        /// </summary>
+        private AToonTanksPlayerController ToonTanksPlayerController { get; set; }
+
+        /// <summary>
+        /// StartDelay
+        /// </summary>
+        private float StartDelay = 3.0f;
 
         /// <summary>
         /// BeginPlay
@@ -21,7 +32,32 @@ namespace ManagedToonTanksSharp.GameMode
         protected override void BeginPlay()
         {
             base.BeginPlay();
+            HandleGameStart();
+        }
+
+        /// <summary>
+        /// HandleGameStart
+        /// </summary>
+        [UFunction]
+        private void HandleGameStart()
+        {
             Tank = (ATank)UGameplayStatics.GetPlayerPawn(0);
+            ToonTanksPlayerController = (AToonTanksPlayerController)UGameplayStatics.GetPlayerController(0);
+            if (ToonTanksPlayerController != null)
+            {
+                ToonTanksPlayerController.SetPlayerEnabledState(false);
+                FTimerHandle TimerHandle = SystemLibrary.SetTimer(this, nameof(EnablePlayerInput), StartDelay, false);
+            }
+        }
+
+        /// <summary>
+        /// EnablePlayerInput
+        /// </summary>
+        [UFunction]
+        private void EnablePlayerInput()
+        {
+            LogUnrealSharp.Log("EnablePlayerInput");
+            ToonTanksPlayerController.SetPlayerEnabledState(true);
         }
 
         /// <summary>
@@ -33,11 +69,9 @@ namespace ManagedToonTanksSharp.GameMode
             if (DeadActor == Tank)
             {
                 Tank.HandleDestruction();
-                APlayerController playerController = Tank.GetPlayerController();
-                if (playerController != null)
+                if (ToonTanksPlayerController != null)
                 {
-                    Tank.DisableInput(playerController);
-                    playerController.ShowMouseCursor = false;
+                    ToonTanksPlayerController.SetPlayerEnabledState(false);
                 }
                 return;
             }
@@ -47,6 +81,8 @@ namespace ManagedToonTanksSharp.GameMode
                 ATower DestroyTower = (ATower)DeadActor;
                 DestroyTower.HandleDestruction();
             }
+
+            UTimerDynamicDelegate TimerDel = new UTimerDynamicDelegate(this, nameof(BeginPlay));
         }
     }
 }
