@@ -60,10 +60,11 @@ namespace ManagedToonTanksSharp.ToonTanks
                 throw new Exception("Player input is not configured for EnhancedInput");
             }
 
-            if (Controller is not APlayerController TankPlayerController)
+            if (Controller is not APlayerController playerController)
             {
                 throw new Exception("Controller is not player");
             }
+            TankPlayerController = playerController;
 
             // InputSubsystemを取得
             var enhancedInputSubsystem = GetLocalPlayerSubsystem<UEnhancedInputLocalPlayerSubsystem>(TankPlayerController);
@@ -91,7 +92,6 @@ namespace ManagedToonTanksSharp.ToonTanks
 
                 RotateTurret(hitResult.ImpactPoint);
             }
-
         }
 
         /// <summary>
