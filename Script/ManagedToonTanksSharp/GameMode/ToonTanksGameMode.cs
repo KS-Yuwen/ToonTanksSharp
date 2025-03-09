@@ -43,6 +43,9 @@ namespace ManagedToonTanksSharp.GameMode
         {
             Tank = (ATank)UGameplayStatics.GetPlayerPawn(0);
             ToonTanksPlayerController = (AToonTanksPlayerController)UGameplayStatics.GetPlayerController(0);
+
+            StartGame();
+
             if (ToonTanksPlayerController != null)
             {
                 ToonTanksPlayerController.SetPlayerEnabledState(false);
@@ -83,6 +86,12 @@ namespace ManagedToonTanksSharp.GameMode
             }
 
             UTimerDynamicDelegate TimerDel = new UTimerDynamicDelegate(this, nameof(BeginPlay));
+        }
+
+        [UFunction(FunctionFlags.BlueprintEvent)]
+        protected void StartGame()
+        {
+            LogUnrealSharp.Log("StartGame");
         }
     }
 }
