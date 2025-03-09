@@ -104,9 +104,8 @@ namespace ManagedToonTanksSharp.GameMode
         /// StartGame
         /// </summary>
         [UFunction(FunctionFlags.BlueprintEvent)]
-        protected void StartGame()
+        public void StartGame()
         {
-            LogUnrealSharp.Log("StartGame");
         }
 
         /// <summary>
@@ -114,9 +113,8 @@ namespace ManagedToonTanksSharp.GameMode
         /// </summary>
         /// <param name="bWonGame"></param>
         [UFunction(FunctionFlags.BlueprintEvent)]
-        protected void GameOver(bool bWonGame)
+        public void GameOver(bool bWonGame)
         {
-            LogUnrealSharp.Log("GameOver");
         }
 
         /// <summary>
