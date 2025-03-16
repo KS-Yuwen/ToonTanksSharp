@@ -41,6 +41,23 @@ namespace ManagedToonTanksSharp.ToonTanks
         [UProperty(PropertyFlags.VisibleAnywhere, Category = "Combat", DefaultComponent = true, AttachmentComponent = nameof(ProjectileMesh))]
         private UParticleSystemComponent TrailParticles { get; set; }
 
+        /// <summary>
+        /// LanchSound
+        /// </summary>
+        [UProperty(PropertyFlags.EditAnywhere, Category = "Combat")]
+        private USoundBase LanchSound { get; set; }
+
+        /// <summary>
+        /// HitSound
+        /// </summary>
+        [UProperty(PropertyFlags.EditAnywhere, Category = "Combat")]
+        private USoundBase HitSound { get; set; }
+
+        /// <summary>
+        /// HitCameraShakeClass
+        /// </summary>
+        [UProperty(PropertyFlags.EditAnywhere, Category = "Combat")]
+        private TSubclassOf<UCameraShakeBase> HitCameraShakeClass { get; set; }
 
         /// <summary>
         /// コンストラクタ
@@ -60,6 +77,10 @@ namespace ManagedToonTanksSharp.ToonTanks
             base.BeginPlay();
 
             ProjectileMesh.OnComponentHit.BindUFunction(this, nameof(OnHit));
+            if (LanchSound != null)
+            {
+                UGameplayStatics.PlaySoundAtLocation(LanchSound, ActorLocation, ActorRotation);
+            }
         }
 
         /// <summary>
@@ -91,6 +112,7 @@ namespace ManagedToonTanksSharp.ToonTanks
 
             var MyOwnerInstigator = Owner.InstigatorController;
             var DamageTypeClass = new TSubclassOf<UDamageType>();
+            //var hitCameraShake = new TSubclassOf<UCameraShakeBase>(HitCameraShakeClass);
 
             if (OtherActor != null
                 && OtherActor != this
@@ -101,6 +123,13 @@ namespace ManagedToonTanksSharp.ToonTanks
                 {
                     UGameplayStatics.SpawnEmitterAtLocation(HitParticles, ActorLocation, ActorRotation);
                 }
+
+                if (HitSound != null)
+                {
+                    UGameplayStatics.PlaySoundAtLocation(HitSound, ActorLocation, ActorRotation);
+                }
+
+                //UGameplayStatics.GetPlayerController(0).PlayerCameraManager.StartCameraShake(HitCameraShakeClass, 1.0f);  // @note BP側で値を設定しているがnullになるのでコメントアウト
             }
 
             DestroyActor();
