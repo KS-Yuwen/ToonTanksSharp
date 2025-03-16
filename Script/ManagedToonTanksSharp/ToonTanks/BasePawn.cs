@@ -45,6 +45,12 @@ namespace ManagedToonTanksSharp.ToonTanks
         private TSubclassOf<AProjectile> ProjectileClass { get; set; }
 
         /// <summary>
+        /// DeathParticles
+        /// </summary>
+        [UProperty(PropertyFlags.EditAnywhere, Category = "Combat")]
+        private UParticleSystem DeathParticles { get; set; }
+
+        /// <summary>
         /// タレットの回転
         /// </summary>
         /// <param name="LookAtTarget"></param>
@@ -76,7 +82,11 @@ namespace ManagedToonTanksSharp.ToonTanks
         /// </summary>
         public void HandleDestruction()
         {
-            // TODO: Visual/sound effect
+            // Visual/sound effect
+            if (DeathParticles != null)
+            {
+                UGameplayStatics.SpawnEmitterAtLocation(DeathParticles, ActorLocation, ActorRotation);
+            }
         }
     }
 }
