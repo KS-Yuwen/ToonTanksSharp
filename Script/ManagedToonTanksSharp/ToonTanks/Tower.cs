@@ -29,6 +29,13 @@ namespace ManagedToonTanksSharp.ToonTanks
         /// </summary>
         private float FireRate = 2.0f;
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public ATower()
+        {
+            ActorTickEnabled = true;
+        }
 
         /// <summary>
         /// BeginPlay
@@ -36,7 +43,6 @@ namespace ManagedToonTanksSharp.ToonTanks
         protected override void BeginPlay()
         {
             base.BeginPlay();
-            ActorTickEnabled = true;    // note 何故かTickが動作していないので、無理やり有効化
 
             Tank = (ATank)UGameplayStatics.GetPlayerPawn(0);
 

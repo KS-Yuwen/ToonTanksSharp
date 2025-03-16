@@ -112,7 +112,6 @@ namespace ManagedToonTanksSharp.ToonTanks
 
             var MyOwnerInstigator = Owner.InstigatorController;
             var DamageTypeClass = new TSubclassOf<UDamageType>();
-            //var hitCameraShake = new TSubclassOf<UCameraShakeBase>(HitCameraShakeClass);
 
             if (OtherActor != null
                 && OtherActor != this

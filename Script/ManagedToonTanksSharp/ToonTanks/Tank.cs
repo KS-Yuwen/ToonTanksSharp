@@ -47,12 +47,19 @@ namespace ManagedToonTanksSharp.ToonTanks
         private APlayerController TankPlayerController { get; set; }
 
         /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public ATank()
+        {
+            ActorTickEnabled = true;
+        }
+
+        /// <summary>
         /// BeginPlay
         /// </summary>
         protected override void BeginPlay()
         {
             base.BeginPlay();
-            ActorTickEnabled = true;    // note 何故かTickが動作していないので、無理やり有効化
 
             resourceManager = AResourceManager.Get();
             if (InputComponent is not UEnhancedInputComponent enhancedInputComponent)
