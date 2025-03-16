@@ -30,6 +30,19 @@ namespace ManagedToonTanksSharp.ToonTanks
         private float Damage { get; set; } = 50.0f;
 
         /// <summary>
+        /// HitParticles
+        /// </summary>
+        [UProperty(PropertyFlags.EditAnywhere, Category = "Combat")]
+        private UParticleSystem HitParticles { get; set; }
+
+        /// <summary>
+        /// TrailParticles
+        /// </summary>
+        [UProperty(PropertyFlags.VisibleAnywhere, Category = "Combat", DefaultComponent = true, AttachmentComponent = nameof(ProjectileMesh))]
+        private UParticleSystemComponent TrailParticles { get; set; }
+
+
+        /// <summary>
         /// コンストラクタ
         /// </summary>
         public AProjectile()
@@ -72,6 +85,7 @@ namespace ManagedToonTanksSharp.ToonTanks
             var MyOwner = Owner;
             if (MyOwner == null)
             {
+                DestroyActor();
                 return;
             }
 
@@ -83,8 +97,13 @@ namespace ManagedToonTanksSharp.ToonTanks
                 && OtherActor != MyOwner)
             {
                 UGameplayStatics.ApplyDamage(OtherActor, Damage, MyOwnerInstigator, this, DamageTypeClass);
-                DestroyActor();
+                if (HitParticles != null)
+                {
+                    UGameplayStatics.SpawnEmitterAtLocation(HitParticles, ActorLocation, ActorRotation);
+                }
             }
+
+            DestroyActor();
         }
     }
 }
