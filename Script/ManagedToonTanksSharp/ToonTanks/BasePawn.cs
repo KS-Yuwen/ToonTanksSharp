@@ -1,4 +1,5 @@
-﻿using UnrealSharp;
+﻿using System.Runtime.CompilerServices;
+using UnrealSharp;
 using UnrealSharp.Attributes;
 using UnrealSharp.CoreUObject;
 using UnrealSharp.Engine;
@@ -48,7 +49,19 @@ namespace ManagedToonTanksSharp.ToonTanks
         /// DeathParticles
         /// </summary>
         [UProperty(PropertyFlags.EditAnywhere, Category = "Combat")]
-        private UParticleSystem DeathParticles { get; set; }
+        private UParticleSystem? DeathParticles { get; set; }
+
+        /// <summary>
+        /// DeathSound
+        /// </summary>
+        [UProperty(PropertyFlags.EditAnywhere, Category = "Combat")]
+        private USoundBase? DeathSound { get; set; }
+
+        /// <summary>
+        /// DeathCameraShakeClass
+        /// </summary>
+        [UProperty(PropertyFlags.EditAnywhere, Category = "Combat")]
+        private TSubclassOf<UCameraShakeBase> DeathCameraShakeClass { get; set; }
 
         /// <summary>
         /// タレットの回転
@@ -87,6 +100,13 @@ namespace ManagedToonTanksSharp.ToonTanks
             {
                 UGameplayStatics.SpawnEmitterAtLocation(DeathParticles, ActorLocation, ActorRotation);
             }
+
+            if (DeathSound != null)
+            {
+                UGameplayStatics.PlaySoundAtLocation(DeathSound, ActorLocation, ActorRotation);
+            }
+
+            //UGameplayStatics.GetPlayerController(0).PlayerCameraManager.StartCameraShake(DeathCameraShakeClass, 1.0f);    // @note BP側で値を設定しているがnullになるのでコメントアウト
         }
     }
 }
