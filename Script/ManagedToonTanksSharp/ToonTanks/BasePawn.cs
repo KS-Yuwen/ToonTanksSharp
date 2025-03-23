@@ -1,10 +1,8 @@
-﻿using System.Runtime.CompilerServices;
-using UnrealSharp;
+﻿using UnrealSharp;
 using UnrealSharp.Attributes;
 using UnrealSharp.CoreUObject;
 using UnrealSharp.Engine;
 using UnrealSharp.EnhancedInput;
-using UnrealSharp.Logging;
 
 namespace ManagedToonTanksSharp.ToonTanks
 {

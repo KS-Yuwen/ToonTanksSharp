@@ -1,7 +1,7 @@
 ﻿using ManagedToonTanksSharp.ToonTanks;
 using UnrealSharp.Attributes;
 using UnrealSharp.Engine;
-using UnrealSharp.Logging;
+using UnrealSharp;
 
 namespace ManagedToonTanksSharp.GameMode
 {
