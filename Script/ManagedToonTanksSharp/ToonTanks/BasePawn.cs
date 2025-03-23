@@ -84,7 +84,9 @@ namespace ManagedToonTanksSharp.ToonTanks
         public void Fire(FInputActionValue value, float arg2, float arg3, UInputAction action)
         {
             // 発射物を生成
-            var Projectile = SpawnActor<AProjectile>(ProjectileClass, ProjectileSpwanPoint.WorldTransform, ESpawnActorCollisionHandlingMethod.AlwaysSpawn);
+            AProjectile Projectile = SpawnActor<AProjectile>(ProjectileClass,
+                                                             ProjectileSpwanPoint.WorldTransform,
+                                                             ESpawnActorCollisionHandlingMethod.AlwaysSpawn);
             Projectile.Owner = this;
         }
 
@@ -104,7 +106,7 @@ namespace ManagedToonTanksSharp.ToonTanks
                 UGameplayStatics.PlaySoundAtLocation(DeathSound, ActorLocation, ActorRotation);
             }
 
-            //UGameplayStatics.GetPlayerController(0).PlayerCameraManager.StartCameraShake(DeathCameraShakeClass, 1.0f);    // @note BP側で値を設定しているがnullになるのでコメントアウト
+            UGameplayStatics.GetPlayerController(0).PlayerCameraManager.StartCameraShake(DeathCameraShakeClass, 1.0f);
         }
     }
 }

@@ -47,6 +47,11 @@ namespace ManagedToonTanksSharp.ToonTanks
         private APlayerController TankPlayerController { get; set; }
 
         /// <summary>
+        /// IsPlayerAlive
+        /// </summary>
+        public bool IsPlayerAlive { get; set; } = true;
+
+        /// <summary>
         /// コンストラクタ
         /// </summary>
         public ATank()
@@ -127,7 +132,6 @@ namespace ManagedToonTanksSharp.ToonTanks
         /// <param name="arg2"></param>
         /// <param name="arg3"></param>
         /// <param name="action"></param>
-        /// <exception cref="NotImplementedException"></exception>
         [UFunction]
         private void Trun(FInputActionValue value, float arg2, float arg3, UInputAction action)
         {
@@ -145,6 +149,7 @@ namespace ManagedToonTanksSharp.ToonTanks
             base.HandleDestruction();
             ActorHiddenInGame = true;
             ActorTickEnabled = false;
+            IsPlayerAlive = false;
         }
 
         /// <summary>
