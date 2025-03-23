@@ -70,7 +70,12 @@ namespace ManagedToonTanksSharp.ToonTanks
         [UFunction]
         private void CheckFireCondition()
         {
-            if (InFireRange())
+            if (Tank == null)
+            {
+                return;
+            }
+
+            if (InFireRange() && Tank.IsPlayerAlive)
             {
                 FInputActionValue fInputActionValue = new FInputActionValue();
                 UInputAction uInputAction = new();

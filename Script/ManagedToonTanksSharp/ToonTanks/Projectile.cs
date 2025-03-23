@@ -103,15 +103,15 @@ namespace ManagedToonTanksSharp.ToonTanks
         [UFunction]
         private void OnHit(UPrimitiveComponent HitComp, AActor OtherActor, UPrimitiveComponent OtherComp, FVector NorlamImpulse, FHitResult Hit)
         {
-            var MyOwner = Owner;
+            AActor MyOwner = Owner;
             if (MyOwner == null)
             {
                 DestroyActor();
                 return;
             }
 
-            var MyOwnerInstigator = Owner.InstigatorController;
-            var DamageTypeClass = new TSubclassOf<UDamageType>();
+            AController MyOwnerInstigator = Owner.InstigatorController;
+            UClass DamageTypeClass = new TSubclassOf<UDamageType>();
 
             if (OtherActor != null
                 && OtherActor != this
@@ -128,7 +128,7 @@ namespace ManagedToonTanksSharp.ToonTanks
                     UGameplayStatics.PlaySoundAtLocation(HitSound, ActorLocation, ActorRotation);
                 }
 
-                //UGameplayStatics.GetPlayerController(0).PlayerCameraManager.StartCameraShake(HitCameraShakeClass, 1.0f);  // @note BP側で値を設定しているがnullになるのでコメントアウト
+                UGameplayStatics.GetPlayerController(0).PlayerCameraManager.StartCameraShake(HitCameraShakeClass, 1.0f);  // @note BP側で値を設定しているがnullになるのでコメントアウト
             }
 
             DestroyActor();
